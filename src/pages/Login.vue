@@ -33,7 +33,8 @@ export default {
       })
 
     const submit=()=>{
-      axios.post("http://localhost:8080/api/account/login", state.form)
+      // axios.post("http://localhost:8080/api/account/login", state.form) 핫로딩이 되지 않아 재실행 시킨다
+      axios.post("/api/account/login", state.form)
           .then(res=>{
             console.log(res);
             window.alert("로그인했습니다.")

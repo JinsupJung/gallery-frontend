@@ -35,7 +35,8 @@ export default {
     //       console.log(res);
     //     })
     // 최신문법
-    axios.get("http://localhost:8080/api/items")
+    // axios.get("http://localhost:8080/api/items")
+    axios.get("/api/items")
         .then(({data}) => {
           state.items = data;
           console.log(data);
