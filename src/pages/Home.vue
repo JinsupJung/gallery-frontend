@@ -6,7 +6,7 @@
 
           <div class="col" v-for="(item, idx) in state.items" :key="idx">
             <Card :item="item"></Card>
-<!--            <Card></Card>-->
+            <!--            <Card></Card>-->
 
           </div>
         </div>
@@ -36,7 +36,9 @@ export default {
     //     })
     // 최신문법
     // axios.get("http://localhost:8080/api/items")
-    axios.get("/api/items")
+    axios.get("/api/items",
+        {withCredentials: true}
+    )
         .then(({data}) => {
           state.items = data;
           console.log(data);

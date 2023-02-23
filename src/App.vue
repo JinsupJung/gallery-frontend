@@ -21,7 +21,9 @@ export default {
   },
   setup() {
     const check = () => {
-      axios.get("/api/account/check")
+      axios.get("/api/account/check",
+          { withCredentials: true }
+      )
           .then(({data})=>{
             console.log(data);
             store.commit("setAccount", data||0);

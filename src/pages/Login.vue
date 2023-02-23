@@ -36,7 +36,9 @@ export default {
 
     const submit=()=>{
       // axios.post("http://localhost:8080/api/account/login", state.form) 핫로딩이 되지 않아 재실행 시킨다
-      axios.post("/api/account/login", state.form)
+      axios.post("/api/account/login", state.form,
+          { withCredentials: true }
+      )
           .then(res=>{
             store.commit('setAccount', res.data);
             sessionStorage.setItem("id", res.data);
