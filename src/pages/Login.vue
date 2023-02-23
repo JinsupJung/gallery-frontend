@@ -24,6 +24,8 @@
 <script>
 import {reactive} from "vue";
 import axios from "axios";
+import store from "@/scripts/store";
+import router from "@/scripts/router";
 
 export default {
   name: "Login",
@@ -36,9 +38,16 @@ export default {
       // axios.post("http://localhost:8080/api/account/login", state.form) 핫로딩이 되지 않아 재실행 시킨다
       axios.post("/api/account/login", state.form)
           .then(res=>{
-            console.log(res);
+            store.commit('setAccount', res.data);
+            sessionStorage.setItem("id", res.data);
+            // console.log(res.data);
             window.alert("로그인했습니다.")
+            router.push({path: '/'});
+
           })
+          .catch(()=>{
+            window.alert("로그인 정보가 없습니다.")
+          });
     }
 
     return {state, submit};
