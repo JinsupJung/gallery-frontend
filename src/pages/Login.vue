@@ -40,7 +40,7 @@ export default {
           .then(res=>{
             store.commit('setAccount', res.data);
             sessionStorage.setItem("id", res.data);
-            // console.log(res.data);
+            console.log(res.data);
             window.alert("로그인했습니다.")
             router.push({path: '/'});
 
